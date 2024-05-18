@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import Chat from "./pages/Chat.jsx";
 import "./index.css";
 import {
   Route,
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<LandingPage />} />
+      <Route path="/chat" element={<Chat />} />
     </Route>
   )
 );
