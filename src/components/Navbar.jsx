@@ -16,8 +16,8 @@ const Navbar = () => {
     setSidebarState(!sidebarState);
   };
 
-  const logoutUser = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
   };
 
   return (
@@ -65,8 +65,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={toggleUserMenu}
-                    onBlur={() => setUserMenuState(false)}
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-[#161b22]"
+                    className="user-menu flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-[#161b22]"
                     aria-expanded={userMenuState}
                     data-dropdown-toggle="dropdown-user"
                   >
@@ -98,18 +97,12 @@ const Navbar = () => {
                       {user?.email}
                     </p>
                   </div>
-                  <ul className="py-1" role="none">
-                    <li>
-                      <a
-                        href="#"
-                        className="font-sfPro block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                        onClick={logoutUser}
-                      >
-                        Sign out
-                      </a>
-                    </li>
-                  </ul>
+                  <button
+                    className="w-full font-sfPro block px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={handleLogout}
+                  >
+                    Sign out
+                  </button>
                 </div>
               </div>
             </div>
