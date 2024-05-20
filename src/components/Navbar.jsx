@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Auth } from "../contexts/Auth";
+import useGoogleLogout from "../hooks/useGoogleLogout";
 
 const Navbar = () => {
   const { user } = useContext(Auth);
   const [userMenuState, setUserMenuState] = useState(false);
   const [sidebarState, setSidebarState] = useState(false);
+  const { logout } = useGoogleLogout();
 
   const toggleUserMenu = () => {
     setUserMenuState(!userMenuState);
@@ -12,6 +14,10 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     setSidebarState(!sidebarState);
+  };
+
+  const logoutUser = () => {
+    logout();
   };
 
   return (
@@ -98,6 +104,7 @@ const Navbar = () => {
                         href="#"
                         className="font-sfPro block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
+                        onClick={logoutUser}
                       >
                         Sign out
                       </a>
