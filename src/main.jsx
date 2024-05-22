@@ -11,6 +11,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { AuthProvider } from "./contexts/Auth.jsx";
+import ChatContextProvider from "./contexts/ChatContext.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <ChatContextProvider>
+        <RouterProvider router={router} />
+      </ChatContextProvider>
     </AuthProvider>
   </React.StrictMode>
 );
