@@ -7,7 +7,7 @@ const Chat = () => {
   return (
     <>
       <Navbar />
-      <div className="chat-container w-screen h-screen bg-[#161b22] mt-16">
+      <div className="chat-container w-screen h-screen bg-[#101010] mt-16">
         <div className="chats h-3/4 flex flex-col-reverse overflow-scroll">
           <DisplayChat />
         </div>
