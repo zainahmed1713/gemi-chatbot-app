@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-[#101010]">
+      <nav className="fixed top-0 z-50 w-full bg-[#161b22]">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -114,10 +114,10 @@ const Navbar = () => {
         id="logo-sidebar"
         className={`fixed ${
           sidebarState ? "block" : "hidden"
-        } top-0 left-0 z-40 w-64 h-screen pt-20 bg-[#101010]`}
+        } top-0 left-0 z-40 w-64 h-screen pt-20 bg-[#161b22]`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-[#101010]">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-[#161b22]">
           <h4 className="font-sfPro font-bold text-white text-lg tracking-wider my-2">
             History
           </h4>
@@ -126,9 +126,9 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 rounded-lg text-white hover:bg-[#161b22] group"
+                className="flex items-center p-2 rounded-lg text-white hover:bg-[#101010] group"
               >
-                <span className="">Dashboard</span>
+                <span className=""></span>
               </a>
             </li>
           </ul>
