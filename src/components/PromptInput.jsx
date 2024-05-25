@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { ChatContext } from "../contexts/ChatContext";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import app from "../../Firebase/firebaseConfig";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
 
-const db = getFirestore(app);
+let flag = false;
 
 const PromptInput = () => {
   const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API);
@@ -16,6 +14,7 @@ const PromptInput = () => {
     const submitBtn = document.querySelector(".submit-prompt");
     submitBtn.disabled = true;
     try {
+      flag = true;
       if (prompt) {
         e.preventDefault();
         setChatState((prev) => [...prev, { prompt }]);
@@ -26,20 +25,25 @@ const PromptInput = () => {
         setChatState((prev) => [...prev, { text }]);
         submitBtn.disabled = false;
       }
-    } catch (e) {
-      console.log("Error:", e);
+    } catch {
+      submitBtn.disabled = false;
+      setPrompt(prompt);
     }
   };
 
   useEffect(() => {
-    console.log("Chat State: ", chatState);
-    localStorage.setItem("chat", JSON.stringify(chatState));
+    if (flag) {
+      localStorage.setItem("chat", JSON.stringify(chatState));
+      console.log("Chat State: ", chatState);
+      console.log("flag: ", flag);
+    }
   }, [chatState]);
 
   useEffect(() => {
-    const savedChatState = JSON.parse(localStorage.getItem("chat"));
-    if (savedChatState) {
-      setChatState(savedChatState);
+    const retrieveChat = JSON.parse(localStorage.getItem("chat"));
+    if (retrieveChat === null) return;
+    else {
+      setChatState(retrieveChat);
     }
   }, []);
 
