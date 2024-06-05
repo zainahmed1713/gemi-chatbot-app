@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { ChatContext } from "../contexts/ChatContext";
 
 const DisplayChat = () => {
@@ -22,7 +24,12 @@ const DisplayChat = () => {
               key={randomNumber + 1}
               className="font-sfPro text-white tracking-widest w-fit p-4 m-2 bg-[#161b22] rounded-xl shadow-2xl lg:w-1/2"
             >
-              <p className="text-wrap text-lg md:text-xl">{chat.text}</p>
+              <Markdown
+                className="gemini-response text-wrap text-lg md:text-xl"
+                remarkPlugins={[remarkGfm]}
+              >
+                {chat.text}
+              </Markdown>
             </div>
           )}
         </>
