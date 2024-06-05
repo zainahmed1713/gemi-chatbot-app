@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gemini-response > p {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.gemini-response > ul > li {
+    list-style-type: disc;
+    margin-left: 8%;
+    margin-bottom: 2px;
+    font-size: 1rem;
+}
