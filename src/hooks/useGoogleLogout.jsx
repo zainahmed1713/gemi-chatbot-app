@@ -14,6 +14,7 @@ const useGoogleLogout = () => {
     setTimeout(async () => {
       await signOut(auth);
       setUser(null);
+      localStorage.removeItem("user");
       navigate("/");
     }, 3000);
   };
