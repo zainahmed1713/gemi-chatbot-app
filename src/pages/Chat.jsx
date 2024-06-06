@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PromptInput from "../components/PromptInput";
 import DisplayChat from "../components/DisplayChat";
 
 const Chat = () => {
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUser = JSON.parse(localStorage.getItem("user"));
+    if (getUser === null) {
+      navigate("/");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Navbar />
