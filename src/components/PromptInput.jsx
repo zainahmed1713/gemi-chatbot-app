@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { process } from "dotenv";
 import { ChatContext } from "../contexts/ChatContext";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
