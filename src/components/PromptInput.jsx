@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 let flag = false;
 
 const PromptInput = () => {
-  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
   const { chatState, setChatState } = useContext(ChatContext);
   const [prompt, setPrompt] = useState("");
