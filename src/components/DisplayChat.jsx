@@ -18,9 +18,9 @@ const DisplayChat = () => {
             </div>
           )}
           {chat?.text && (
-            <div className="font-sfPro text-white tracking-widest w-fit p-4 m-2 bg-[#161b22] rounded-xl shadow-2xl lg:w-1/2">
+            <div className="font-sfPro text-white tracking-widest w-full p-4 m-2 bg-[#161b22] rounded-xl shadow-2xl lg:w-1/2">
               <Markdown
-                className="gemini-response text-wrap text-lg md:text-xl"
+                className="gemini-response text-wrap text-sm md:text-xl"
                 remarkPlugins={[remarkGfm]}
                 components={{
                   code({ node, inline, className, children, ...props }) {
